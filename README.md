@@ -14,3 +14,5 @@ A software focused in market analyses and  business planning.
 
 
 Overleaf : https://www.overleaf.com/5242878ptvqjw#/16474399/
+
+Asana project : https://app.asana.com/0/135484312202583/135484312202615
