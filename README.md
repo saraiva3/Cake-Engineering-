@@ -16,3 +16,11 @@ A software focused in market analyses and  business planning.
 Overleaf : https://www.overleaf.com/5242878ptvqjw#/16474399/
 
 Asana project : https://app.asana.com/0/135484312202583/135484312202615
+
+Vagrant Docs: https://www.vagrantup.com/
+
+Virtual Box: https://www.virtualbox.org/wiki/Linux_Downloads
+
+How up the machine:
+
+Inside the php-machine directory, execute the <b>vagrant up</b> command. Access the machine through <b>ssh</b> with <b>vagrant ssh</b>.
