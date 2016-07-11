@@ -12,7 +12,7 @@ vagrant/.vagrant
 !/cake_web/var/sessions
 /cake_web/var/sessions/*
 !cake_web/var/sessions/.gitkeep
-!cake_web/var/SymfonyRequirements.php
+!/cake_web/var/SymfonyRequirements.php
 /cake_web/vendor/
 /cake_web/web/bundles/
 
