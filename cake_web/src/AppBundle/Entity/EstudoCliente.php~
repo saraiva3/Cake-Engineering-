@@ -1,0 +1,57 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * EstudoCliente
+ *
+ * @ORM\Table(name="estudo_cliente", indexes={@ORM\Index(name="fk_estudo_cliente_plano_negocio1_idx", columns={"plano_negocio_id"})})
+ * @ORM\Entity
+ */
+class EstudoCliente
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="publico_alvo", type="string", length=1000, nullable=true)
+     */
+    private $publicoAlvo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="comportamento", type="string", length=1000, nullable=true)
+     */
+    private $comportamento;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="abrangencia", type="string", length=1000, nullable=true)
+     */
+    private $abrangencia;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var \AppBundle\Entity\PlanoNegocio
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\PlanoNegocio")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="plano_negocio_id", referencedColumnName="id")
+     * })
+     */
+    private $planoNegocio;
+
+
+}
+

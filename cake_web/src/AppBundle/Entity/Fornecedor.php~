@@ -1,0 +1,71 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Fornecedor
+ *
+ * @ORM\Table(name="fornecedor", indexes={@ORM\Index(name="fk_fornecedor_plano_negocio1_idx", columns={"plano_negocio_id"})})
+ * @ORM\Entity
+ */
+class Fornecedor
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="preco", type="string", length=45, nullable=true)
+     */
+    private $preco;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="localizacao", type="string", length=45, nullable=true)
+     */
+    private $localizacao;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="prazo_entrega", type="string", length=45, nullable=true)
+     */
+    private $prazoEntrega;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="descricao_item", type="string", length=500, nullable=true)
+     */
+    private $descricaoItem;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="condicoes_pagamento", type="string", length=45, nullable=true)
+     */
+    private $condicoesPagamento;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var \AppBundle\Entity\PlanoNegocio
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\PlanoNegocio")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="plano_negocio_id", referencedColumnName="id")
+     * })
+     */
+    private $planoNegocio;
+
+
+}
+

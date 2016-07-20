@@ -1,0 +1,57 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * PlanoNegocio
+ *
+ * @ORM\Table(name="plano_negocio", indexes={@ORM\Index(name="fk_descricao_plano_negocio_usuario1_idx", columns={"usuario_id"})})
+ * @ORM\Entity
+ */
+class PlanoNegocio
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nome_plano", type="string", length=50, nullable=false)
+     */
+    private $nomePlano;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="periodo_planejamento", type="integer", nullable=false)
+     */
+    private $periodoPlanejamento;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="resumo_plano", type="string", length=1000, nullable=true)
+     */
+    private $resumoPlano;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var \AppBundle\Entity\Usuario
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Usuario")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="usuario_id", referencedColumnName="id")
+     * })
+     */
+    private $usuario;
+
+
+}
+

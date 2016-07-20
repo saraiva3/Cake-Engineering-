@@ -1,0 +1,67 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * DemonstrativoResultado
+ *
+ * @ORM\Table(name="demonstrativo_resultado", indexes={@ORM\Index(name="fk_demonstrativo_resultado_demonstrativo_resultados_itens1_idx", columns={"demonstrativo_resultados_itens_id"}), @ORM\Index(name="fk_demonstrativo_resultado_plano_negocio1_idx", columns={"plano_negocio_id"})})
+ * @ORM\Entity
+ */
+class DemonstrativoResultado
+{
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="valor", type="float", precision=8, scale=2, nullable=true)
+     */
+    private $valor;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="valor_anual", type="float", precision=8, scale=2, nullable=true)
+     */
+    private $valorAnual;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="percentual_", type="float", precision=8, scale=2, nullable=true)
+     */
+    private $percentual;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var \AppBundle\Entity\PlanoNegocio
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\PlanoNegocio")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="plano_negocio_id", referencedColumnName="id")
+     * })
+     */
+    private $planoNegocio;
+
+    /**
+     * @var \AppBundle\Entity\DemonstrativoResultadosItens
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\DemonstrativoResultadosItens")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="demonstrativo_resultados_itens_id", referencedColumnName="id")
+     * })
+     */
+    private $demonstrativoResultadosItens;
+
+
+}
+

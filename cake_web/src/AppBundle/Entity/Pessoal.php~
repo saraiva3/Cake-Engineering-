@@ -1,0 +1,52 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Pessoal
+ *
+ * @ORM\Table(name="pessoal", indexes={@ORM\Index(name="fk_pessoal_custo_mao_de_obra1_idx", columns={"custo_mao_de_obra_idcusto_mao_de_obra"})})
+ * @ORM\Entity
+ */
+class Pessoal
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="cargo", type="string", length=45, nullable=true)
+     */
+    private $cargo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="qualificacao", type="string", length=300, nullable=true)
+     */
+    private $qualificacao;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     */
+    private $id;
+
+    /**
+     * @var \AppBundle\Entity\CustoMaoDeObra
+     *
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\CustoMaoDeObra")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="custo_mao_de_obra_idcusto_mao_de_obra", referencedColumnName="idcusto_mao_de_obra")
+     * })
+     */
+    private $custoMaoDeObracustoMaoDeObra;
+
+
+}
+

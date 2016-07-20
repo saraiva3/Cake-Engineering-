@@ -1,0 +1,53 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * ApuracaoCustoMdMv
+ *
+ * @ORM\Table(name="apuracao_custo_md_mv", indexes={@ORM\Index(name="fk_apuracao_custo_md_mv_faturamento_mensal1_idx", columns={"faturamento_mensal_id"}), @ORM\Index(name="fk_apuracao_custo_md_mv_plano_negocio1_idx", columns={"plano_negocio_id"})})
+ * @ORM\Entity
+ */
+class ApuracaoCustoMdMv
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="crescimento_mes", type="string", length=45, nullable=true)
+     */
+    private $crescimentoMes;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var \AppBundle\Entity\PlanoNegocio
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\PlanoNegocio")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="plano_negocio_id", referencedColumnName="id")
+     * })
+     */
+    private $planoNegocio;
+
+    /**
+     * @var \AppBundle\Entity\FaturamentoMensal
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\FaturamentoMensal")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="faturamento_mensal_id", referencedColumnName="id")
+     * })
+     */
+    private $faturamentoMensal;
+
+
+}
+

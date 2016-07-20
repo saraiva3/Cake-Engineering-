@@ -1,0 +1,64 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Fofa
+ *
+ * @ORM\Table(name="fofa", indexes={@ORM\Index(name="fk_fofa_plano_negocio1_idx", columns={"plano_negocio_id"})})
+ * @ORM\Entity
+ */
+class Fofa
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="forcas", type="string", length=100, nullable=true)
+     */
+    private $forcas;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="oportunidade", type="string", length=100, nullable=true)
+     */
+    private $oportunidade;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="fraquezas", type="string", length=100, nullable=true)
+     */
+    private $fraquezas;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ameacas", type="string", length=100, nullable=true)
+     */
+    private $ameacas;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var \AppBundle\Entity\PlanoNegocio
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\PlanoNegocio")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="plano_negocio_id", referencedColumnName="id")
+     * })
+     */
+    private $planoNegocio;
+
+
+}
+

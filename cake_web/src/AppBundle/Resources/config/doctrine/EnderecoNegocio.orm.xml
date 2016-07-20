@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="AppBundle\Entity\EnderecoNegocio" table="endereco_negocio">
+    <indexes>
+      <index name="fk_endereco_negocio_logradouro1_idx" columns="logradouro_id"/>
+    </indexes>
+    <id name="id" type="integer" column="id"/>
+    <id name="logradouro" association-key="true"/>
+    <field name="telefone" type="integer" column="telefone" nullable="true">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <one-to-one field="logradouro" target-entity="Logradouro" fetch="LAZY">
+      <join-columns>
+        <join-column name="logradouro_id" referenced-column-name="id"/>
+      </join-columns>
+    </one-to-one>
+  </entity>
+</doctrine-mapping>

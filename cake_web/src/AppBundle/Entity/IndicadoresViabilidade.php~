@@ -1,0 +1,57 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * IndicadoresViabilidade
+ *
+ * @ORM\Table(name="indicadores_viabilidade", indexes={@ORM\Index(name="fk_indicadores_viabilidade_plano_negocio1_idx", columns={"plano_negocio_id"})})
+ * @ORM\Entity
+ */
+class IndicadoresViabilidade
+{
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="ponto_equilibrio", type="float", precision=8, scale=2, nullable=true)
+     */
+    private $pontoEquilibrio;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="lucrativade", type="float", precision=8, scale=2, nullable=true)
+     */
+    private $lucrativade;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="rentabilidade", type="float", precision=8, scale=2, nullable=true)
+     */
+    private $rentabilidade;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var \AppBundle\Entity\PlanoNegocio
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\PlanoNegocio")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="plano_negocio_id", referencedColumnName="id")
+     * })
+     */
+    private $planoNegocio;
+
+
+}
+

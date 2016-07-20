@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="AppBundle\Entity\InvestimentoFixo" table="investimento_fixo">
+    <indexes>
+      <index name="fk_investimento_fixo_investimento_total1_idx" columns="investimento_total_id"/>
+      <index name="fk_investimento_fixo_custo_depreciacao1_idx" columns="custo_depreciacao_id"/>
+      <index name="fk_investimento_fixo_plano_negocio1_idx" columns="plano_negocio_id"/>
+    </indexes>
+    <id name="id" type="integer" column="id"/>
+    <id name="custoDepreciacao" association-key="true"/>
+    <id name="investimentoTotal" association-key="true"/>
+    <field name="tipo" type="string" column="tipo" length="45" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="descricaoObjeto" type="string" column="descricao_objeto" length="300" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="quantidade" type="integer" column="quantidade" nullable="true">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="valorUnitario" type="float" column="valor_unitario" precision="10" scale="0" nullable="true"/>
+    <one-to-one field="custoDepreciacao" target-entity="CustoDepreciacao" fetch="LAZY">
+      <join-columns>
+        <join-column name="custo_depreciacao_id" referenced-column-name="id"/>
+      </join-columns>
+    </one-to-one>
+    <one-to-one field="investimentoTotal" target-entity="InvestimentoTotal" fetch="LAZY">
+      <join-columns>
+        <join-column name="investimento_total_id" referenced-column-name="id"/>
+      </join-columns>
+    </one-to-one>
+    <many-to-one field="planoNegocio" target-entity="PlanoNegocio" fetch="LAZY">
+      <join-columns>
+        <join-column name="plano_negocio_id" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

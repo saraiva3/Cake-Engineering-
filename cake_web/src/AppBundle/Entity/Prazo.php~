@@ -1,0 +1,59 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Prazo
+ *
+ * @ORM\Table(name="prazo", indexes={@ORM\Index(name="fk_prazo_caixa_minimo1_idx", columns={"caixa_minimo_id"})})
+ * @ORM\Entity
+ */
+class Prazo
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="descricao", type="string", length=300, nullable=true)
+     */
+    private $descricao;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="percentual", type="integer", nullable=true)
+     */
+    private $percentual;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="dias", type="integer", nullable=true)
+     */
+    private $dias;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     */
+    private $id;
+
+    /**
+     * @var \AppBundle\Entity\CaixaMinimo
+     *
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\CaixaMinimo")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="caixa_minimo_id", referencedColumnName="id")
+     * })
+     */
+    private $caixaMinimo;
+
+
+}
+

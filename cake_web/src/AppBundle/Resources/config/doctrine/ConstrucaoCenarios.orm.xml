@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="AppBundle\Entity\ConstrucaoCenarios" table="construcao_cenarios">
+    <indexes>
+      <index name="fk_cenario_idx" columns="id_cenario"/>
+      <index name="fk_acao_idx" columns="id_acao"/>
+      <index name="fk_construcao_cenarios_plano_negocio1_idx" columns="plano_negocio_id"/>
+    </indexes>
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="cenarioProvavel" type="float" column="cenario_provavel" precision="10" scale="0" nullable="false"/>
+    <field name="cenarioPessimista" type="float" column="cenario_pessimista" precision="10" scale="0" nullable="false"/>
+    <field name="cenarioOtimista" type="float" column="cenario_otimista" precision="10" scale="0" nullable="false"/>
+    <many-to-one field="planoNegocio" target-entity="PlanoNegocio" fetch="LAZY">
+      <join-columns>
+        <join-column name="plano_negocio_id" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="idCenario" target-entity="Cenario" fetch="LAZY">
+      <join-columns>
+        <join-column name="id_cenario" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="idAcao" target-entity="Acoes" fetch="LAZY">
+      <join-columns>
+        <join-column name="id_acao" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

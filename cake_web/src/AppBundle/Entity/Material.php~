@@ -1,0 +1,59 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Material
+ *
+ * @ORM\Table(name="material", indexes={@ORM\Index(name="fk_material_custo_unitario1_idx", columns={"custo_unitario_id"})})
+ * @ORM\Entity
+ */
+class Material
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="material", type="string", length=300, nullable=true)
+     */
+    private $material;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="quantidade", type="integer", nullable=true)
+     */
+    private $quantidade;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="preco", type="float", precision=10, scale=0, nullable=true)
+     */
+    private $preco;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     */
+    private $id;
+
+    /**
+     * @var \AppBundle\Entity\CustoUnitario
+     *
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\CustoUnitario")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="custo_unitario_id", referencedColumnName="id")
+     * })
+     */
+    private $custoUnitario;
+
+
+}
+

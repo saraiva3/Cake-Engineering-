@@ -1,0 +1,69 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Socio
+ *
+ * @ORM\Table(name="socio", indexes={@ORM\Index(name="fk_socio_capitarl_social1_idx", columns={"capitarl_social_id"}), @ORM\Index(name="fk_socio_plano_negocio1_idx", columns={"plano_negocio_id"})})
+ * @ORM\Entity
+ */
+class Socio
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nome", type="string", length=45, nullable=true)
+     */
+    private $nome;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="valor", type="float", precision=8, scale=2, nullable=true)
+     */
+    private $valor;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="participacao", type="float", precision=8, scale=2, nullable=true)
+     */
+    private $participacao;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     */
+    private $id;
+
+    /**
+     * @var \AppBundle\Entity\CapitarlSocial
+     *
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\CapitarlSocial")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="capitarl_social_id", referencedColumnName="id")
+     * })
+     */
+    private $capitarlSocial;
+
+    /**
+     * @var \AppBundle\Entity\PlanoNegocio
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\PlanoNegocio")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="plano_negocio_id", referencedColumnName="id")
+     * })
+     */
+    private $planoNegocio;
+
+
+}
+

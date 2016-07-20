@@ -1,0 +1,92 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Tributario
+ *
+ * @ORM\Table(name="tributario", indexes={@ORM\Index(name="fk_tributario_plano_negocio1_idx", columns={"plano_negocio_id"})})
+ * @ORM\Entity
+ */
+class Tributario
+{
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="simples", type="boolean", nullable=true)
+     */
+    private $simples;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="irpj", type="boolean", nullable=true)
+     */
+    private $irpj;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="pis", type="boolean", nullable=true)
+     */
+    private $pis;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="cofins", type="boolean", nullable=true)
+     */
+    private $cofins;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="csll", type="boolean", nullable=true)
+     */
+    private $csll;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="ipi", type="boolean", nullable=true)
+     */
+    private $ipi;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="icms", type="boolean", nullable=true)
+     */
+    private $icms;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="iss", type="boolean", nullable=true)
+     */
+    private $iss;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var \AppBundle\Entity\PlanoNegocio
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\PlanoNegocio")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="plano_negocio_id", referencedColumnName="id")
+     * })
+     */
+    private $planoNegocio;
+
+
+}
+

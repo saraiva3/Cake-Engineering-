@@ -1,0 +1,33 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * CustoComercializacaoPeriodo
+ *
+ * @ORM\Table(name="custo_comercializacao_periodo")
+ * @ORM\Entity
+ */
+class CustoComercializacaoPeriodo
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="mes", type="string", length=45, nullable=true)
+     */
+    private $mes;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+
+}
+

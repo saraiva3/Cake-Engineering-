@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="AppBundle\Entity\Pessoal" table="pessoal">
+    <indexes>
+      <index name="fk_pessoal_custo_mao_de_obra1_idx" columns="custo_mao_de_obra_idcusto_mao_de_obra"/>
+    </indexes>
+    <id name="id" type="integer" column="id"/>
+    <id name="custoMaoDeObracustoMaoDeObra" association-key="true"/>
+    <field name="cargo" type="string" column="cargo" length="45" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="qualificacao" type="string" column="qualificacao" length="300" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <one-to-one field="custoMaoDeObracustoMaoDeObra" target-entity="CustoMaoDeObra" fetch="LAZY">
+      <join-columns>
+        <join-column name="custo_mao_de_obra_idcusto_mao_de_obra" referenced-column-name="idcusto_mao_de_obra"/>
+      </join-columns>
+    </one-to-one>
+  </entity>
+</doctrine-mapping>

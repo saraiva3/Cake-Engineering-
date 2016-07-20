@@ -1,0 +1,54 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * InvestimentoTotal
+ *
+ * @ORM\Table(name="investimento_total")
+ * @ORM\Entity
+ */
+class InvestimentoTotal
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="resultado", type="string", length=45, nullable=true)
+     */
+    private $resultado;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="percentual_recursosProprios", type="integer", nullable=true)
+     */
+    private $percentualRecursosproprios;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="percentual_recursosTerceiros", type="integer", nullable=true)
+     */
+    private $percentualRecursosterceiros;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="percentual_outros", type="integer", nullable=true)
+     */
+    private $percentualOutros;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+
+}
+

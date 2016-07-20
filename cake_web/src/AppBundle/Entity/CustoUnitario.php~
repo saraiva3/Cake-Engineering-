@@ -1,0 +1,60 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * CustoUnitario
+ *
+ * @ORM\Table(name="custo_unitario", indexes={@ORM\Index(name="fk_custo_unitario_faturamento_mensal1_idx", columns={"faturamento_mensal_id"}), @ORM\Index(name="fk_custo_unitario_apuracao_custo_md_mv1_idx", columns={"apuracao_custo_md_mv_id"})})
+ * @ORM\Entity
+ */
+class CustoUnitario
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="produto", type="string", length=45, nullable=true)
+     */
+    private $produto;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="custo_unitariocol", type="string", length=45, nullable=true)
+     */
+    private $custoUnitariocol;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var \AppBundle\Entity\FaturamentoMensal
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\FaturamentoMensal")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="faturamento_mensal_id", referencedColumnName="id")
+     * })
+     */
+    private $faturamentoMensal;
+
+    /**
+     * @var \AppBundle\Entity\ApuracaoCustoMdMv
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\ApuracaoCustoMdMv")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="apuracao_custo_md_mv_id", referencedColumnName="id")
+     * })
+     */
+    private $apuracaoCustoMdMv;
+
+
+}
+

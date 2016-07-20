@@ -1,0 +1,68 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * FaturamentoMensal
+ *
+ * @ORM\Table(name="faturamento_mensal")
+ * @ORM\Entity
+ */
+class FaturamentoMensal
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="tipo", type="string", length=45, nullable=true)
+     */
+    private $tipo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="descricao", type="string", length=45, nullable=true)
+     */
+    private $descricao;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="quantidade", type="integer", nullable=true)
+     */
+    private $quantidade;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="preco", type="float", precision=10, scale=0, nullable=true)
+     */
+    private $preco;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="crescimeto_constante", type="float", precision=10, scale=0, nullable=true)
+     */
+    private $crescimetoConstante;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="crescimento_mes", type="string", length=45, nullable=true)
+     */
+    private $crescimentoMes;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+
+}
+
