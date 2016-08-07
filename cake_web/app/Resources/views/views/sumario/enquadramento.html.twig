@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<section class="content-header">
+    <h1>
+      <small>Sumário Executivo</small>
+      Enquadramento Tributário
+    </h1>
+</section>
+<section class="content">
+  <div>
+  <form>
+    <br><label>Optante pelo SIMPLES?</label><br>
+    <input type="radio">Sim<br>
+    <input type="radio">Não<br><br>
+    <table>
+      &nbsp&nbsp<tr>- IRPJ: Imposto de Renda Pessoa Jurídica</tr><br>
+      &nbsp&nbsp<tr>- PIS: Contribuição para os Programas de Integração Social</tr><br>
+      &nbsp&nbsp<tr>- COFINS: Contribuição para Financiamento da Seguridade Social</tr><br>
+      &nbsp&nbsp<tr>- CSLL: Contribuição Social sobre o Lucro Líquido</tr><br>
+      &nbsp&nbsp<tr>- IPI: Imposto sobre Produtos Industrializados (apenas para indústria)</tr><br>
+      &nbsp&nbsp<tr>- ICMS: Imposto sobre Circulação de Mercadorias e Serviços</tr><br>
+      &nbsp&nbsp<tr>- ISS: Imposto sobre Serviços</tr><br>
+    </table>
+    </form>
+  </div>
+</section>
+    
+{% endblock %}

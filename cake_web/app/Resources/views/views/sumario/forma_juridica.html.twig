@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<section class="content-header">
+    <h1>
+      <small>Sumário Executivo</small>
+      Forma Jurídica
+    </h1>
+</section>
+<section class="content">
+  <div>
+    <br><label>Defina a forma jurídica da empresa:</label><br>
+    <input type="radio">Empresário Individual<br>
+    <input type="radio">Empresa Individual de Responsabilidade Limitada - EIRELI<br>
+    <input type="radio">Microempreendedor Individual - MEI<br>
+    <input type="radio">Sociedade Limitada<br>
+    <input type="radio">Outra
+    <input type="text">
+  </div>
+</section>
+    
+{% endblock %}

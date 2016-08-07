@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<section class="content-header">
+    <h1>
+      <small>Análise de Mercado</small>
+      Estudo dos Concorrentes
+    </h1>
+</section>
+<section class="content">
+  <div>
+    <br><label>Identifique os concorrentes</label><br>
+    <table border="1" width="800">
+      <tr>
+        <th style="text-align: center">Empresa</th>
+        <th style="text-align: center">Localização</th>
+        <th style="text-align: center">Qualidade</th>
+        <th style="text-align: center">Atendimento</th>
+        <th style="text-align: center">Serviços</th>
+        <th style="text-align: center">Preços</th>
+        <th style="text-align: center">Condições</th>
+        <th style="text-align: center">Ações</th>
+      </tr>
+      <tr>
+        <td align="center">Silvandro</td>
+        <td align="center">teste</td>
+        <td align="center">teste</td>
+        <td align="center">teste</td>
+        <td align="center">teste</td>
+        <td align="center">teste</td>
+        <td align="center">teste</td>
+        <td align="center">teste</td>
+      </tr>
+    </table>
+  </div>
+  <div>
+    <form>
+      <input type="button" name="btIncluir" value="Incluir concorrente"><br><br>
+      <label>Conclusões</label><br>
+      <textarea rows="6" cols="100"></textarea>
+    </form>
+  </div>
+</section>
+    
+{% endblock %}

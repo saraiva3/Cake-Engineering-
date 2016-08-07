@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<section class="content-header">
+    <h1>
+      <small>Análise do Mercado</small>
+      Estudo dos Fornecedores
+    </h1>
+</section>
+<section class="content">
+  <div>
+    <br><label>Sócios da empresa</label><br>
+    <table border="1" width="500">
+      <tr>
+        <th style="text-align: center">Fornecedor</th>
+        <th style="text-align: center">Localização</th>
+        <th style="text-align: center">Item</th>
+        <th style="text-align: center">Prazo de Entrega</th>
+        <th style="text-align: center">Preço</th>
+        <th style="text-align: center">Condições</th>
+        <th style="text-align: center">Ações</th>
+      </tr>
+      <tr>
+        <td align="center">Silvandro</td>
+        <td align="center">teste</td>
+        <td align="center">teste</td>
+        <td align="center">teste</td>
+        <td align="center">teste</td>
+        <td align="center">teste</td>
+        <td align="center">teste</td>
+      </tr>
+    </table>
+  </div>
+  <div>
+    <form>
+      <input type="button" name="btIncluir" value="Incluir fornecedor">
+    </form>
+  </div>
+</section>
+    
+{% endblock %}

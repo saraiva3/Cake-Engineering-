@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<section class="content-header">
+    <h1>
+      <small>Sumário Executivo</small>
+      Dados dos Empreendedores
+    </h1>
+</section>
+<section class="content">
+  <div>
+    <br><label>Sócios da empresa</label><br>
+    <table border="1" width="500">
+      <tr>
+        <th style="text-align: center">Nome do sócio</th>
+        <th style="text-align: center">Perfil</th>
+        <th style="text-align: center">Atribuições</th>
+        <th style="text-align: center">Telefone</th>
+        <th style="text-align: center">Ações</th>
+      </tr>
+      <tr>
+        <td align="center">Silvandro</td>
+        <td align="center">teste</td>
+        <td align="center">teste</td>
+        <td align="center">teste</td>
+        <td align="center">teste</td>
+      </tr>
+    </table>
+  </div>
+  <div>
+    <form>
+      <input type="button" name="btIncluir" value="Incluir sócio">
+    </form>
+  </div>
+</section>
+    
+{% endblock %}
